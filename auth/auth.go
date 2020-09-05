@@ -10,12 +10,13 @@ import (
 )
 
 const (
-	CodeSuccess             = 0
-	CodeAuthProfileNotFound = 1000
-	CodeInvalidPassword     = 1001
-	CodeDuplicateEmail      = 1002
-	CodeInternalError       = 9000
-	CodeParseRequestError   = 9001
+	CodeSuccess               = 0
+	CodeAuthProfileNotFound   = 1000
+	CodeInvalidPassword       = 1001
+	CodeDuplicateEmail        = 1002
+	CodeInternalError         = 9000
+	CodeParseRequestError     = 9001
+	CodeMissingRequiredFields = 9002
 
 	DescSuccess             = "success"
 	DescAuthProfileNotFound = "auth profile not found"

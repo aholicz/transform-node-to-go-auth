@@ -30,6 +30,13 @@ func (h *Handler) CreateAuthProfile(c echo.Context) error {
 			DescParseRequestError))
 	}
 
+	if missing, msg := isMissingRequired(authProfile); missing {
+		return c.JSON(http.StatusBadRequest, responseError(
+			http.StatusBadRequest,
+			CodeMissingRequiredFields,
+			msg))
+	}
+
 	resp, err := h.service.CreateAuthProfile(ctx, authProfile)
 	if err != nil {
 		logx.WithContext(ctx).Errorf("%+v", err)
@@ -50,6 +57,13 @@ func (h *Handler) Authenticate(c echo.Context) error {
 			http.StatusBadRequest,
 			CodeParseRequestError,
 			DescParseRequestError))
+	}
+
+	if missing, msg := isMissingRequired(authProfile); missing {
+		return c.JSON(http.StatusBadRequest, responseError(
+			http.StatusBadRequest,
+			CodeMissingRequiredFields,
+			msg))
 	}
 
 	resp, err := h.service.Authenticate(ctx, authProfile)
