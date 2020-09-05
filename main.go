@@ -37,6 +37,8 @@ func init() {
 func init() {
 	router.HideBanner = true
 	router.HidePort = true
+
+	//TODO: i'm hidding customize router (=w=)
 }
 
 func main() {
